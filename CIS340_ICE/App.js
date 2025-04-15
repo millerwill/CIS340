@@ -1,3 +1,4 @@
+// Import necessary libraries and components for building the app UI and navigation
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,26 +10,28 @@ import SignupScreen from './auth/SignupScreen';
 
 // Import your projects here
 
-//week 12 Day 1
+// ---------------- WEEK 12 ---------------- //
+// Day 1 project screens
 import FullNameWithPet from './projects/Week12/Day1/FullNameWithPet';
 import MyStudentProfile from './projects/Week12/Day1/MyStudentProfile';
 import PetInfo from './projects/Week12/Day1/PetInfo';
 import TextInputExample from './projects/Week12/Day1/TextInputExample';
 
-// //week 12 Day 2
+// Day 2 project screens
 import ButtonAlerts from './projects/Week12/Day2/ButtonAlerts';
 import DogApp from './projects/Week12/Day2/DogApp';
 import MultiStudent from './projects/Week12/Day2/MultiStudent';
 import MultiTVs from './projects/Week12/Day2/MultiTVs';
 
-// //week 13 Day 1
+// ---------------- WEEK 13 ---------------- //
+// Day 1 project screens
 import CitiesSelectionList from './projects/Week13/Day1/CitiesSectionList';
 import ClassComponentExample from './projects/Week13/Day1/ClassComponentExample';
 import ScrollViewExample from './projects/Week13/Day1/ScrollViewExample';
 import StatesFlatList from './projects/Week13/Day1/StatesFlatList';
 import WordConvertor from './projects/Week13/Day1/WordConverter';
 
-// //week 13 Day 2
+// Day 2 project screens
 import EqualFlexLayout from './projects/Week13/Day2/EqualFlexLayout';
 import FixedSizeLayout from './projects/Week13/Day2/FixedSizeLayout';
 import FlexLayout from './projects/Week13/Day2/FlexLayout';
@@ -37,33 +40,38 @@ import RowLayout from './projects/Week13/Day2/RowLayout';
 import SpaceEvenlyLayout from './projects/Week13/Day2/SpaceEvenlyLayout';
 import StyledText from './projects/Week13/Day2/StyledText';
 
-// //week 14 Day 1
+// ---------------- WEEK 14 ---------------- //
+// Day 1 project screen
 import ImagePickerAndShare from './projects/Week14/Day1/ImagePickerAndShare';
 
-// //week 14 Day 2
+// Day 2 project screen
 import WeatherForecast from './projects/Week14/Day2/WeatherForecast';
 
-// //week 15 Day 1
+// ---------------- WEEK 15 ---------------- //
+// Day 1 project screens
 import CoinFlipApp from './projects/Week15/Day1/CoinFlipApp';
 import DiceRoller from './projects/Week15/Day1/DiceRoller';
 
-// //week 15 Day 2
+// Day 2 project screen
 import ThemeToggle from './projects/Week15/Day2/ThemeToggle';
 import CounterApp from './projects/Week15/Day2/CounterApp';
 
-// //week 16 Day 1
+// ---------------- WEEK 16 ---------------- //
+// Day 1 project screen
 import ToDoList from './projects/Week16/Day1/ToDoList';
 
-// //week 16 Day 2
+// Day 2 project screen
 import bmiCalculator from './projects/Week16/Day2/bmiCalculator';
 
+// Create a Stack Navigator object which manages the navigation between different screens
 const Stack = createStackNavigator();
 
-// Home Screen with Welcome Message and Project Navigation
+// ---------------- HOME SCREEN COMPONENT ---------------- //
+// This screen is shown after login and lists all project modules week-wise
 function HomeScreen({ route, navigation }) {
   const userName = route.params.userName || 'User'; // Get username from params
 
-  // Handle Logout
+  // Show logout confirmation and go back to login screen
   const handleLogout = () => {
     Alert.alert('Success', 'Logged out successfully!', [
       {
@@ -74,20 +82,17 @@ function HomeScreen({ route, navigation }) {
   };
 
   return (
+    // ScrollView makes the screen vertically scrollable when the content is long, which view the list of project with text title and buttons to navigate to each project
     <ScrollView style={styles.container}>
-      {/* Welcome message at the top */}
+      {/* Greeting message shown at the top of the screen */}
       <Text style={styles.text}>Welcome, {userName}!</Text>
 
-      {/* Project Selection */}
+      {/* Subheading to introduce the project list */}
       <Text style={styles.title}>My Projects:</Text>
-
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 12 - Day 1</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('PetInfo')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('PetInfo')}>
           <Text style={styles.cardButtonText}>Pet Info</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('FullNameWithPet')}>
@@ -98,14 +103,12 @@ function HomeScreen({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('TextInputExample')}>
           <Text style={styles.cardButtonText}>Text Input Example</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
+
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 12 - Day 2</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('DogApp')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('DogApp')}>
           <Text style={styles.cardButtonText}>Dog App</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('MultiStudent')}>
@@ -116,15 +119,12 @@ function HomeScreen({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ButtonAlerts')}>
           <Text style={styles.cardButtonText}>Button Alerts</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 13 - Day 1</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ClassComponentExample')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ClassComponentExample')}>
           <Text style={styles.cardButtonText}>Class Component Example</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ScrollViewExample')}>
@@ -138,14 +138,12 @@ function HomeScreen({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('CitiesSelectionList')}>
           <Text style={styles.cardButtonText}>Cities Selection List</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
+
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 13 - Day 2</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('EqualFlexLayout')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('EqualFlexLayout')}>
           <Text style={styles.cardButtonText}>Equal Flex Layout</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('FixedSizeLayout')}>
@@ -165,28 +163,22 @@ function HomeScreen({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('FlippableMealCards')}>
           <Text style={styles.cardButtonText}>Flippable Meal Cards</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 14</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ImagePickerAndShare')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ImagePickerAndShare')}>
           <Text style={styles.cardButtonText}>Image Picker And Share</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('WeatherForecast')}>
           <Text style={styles.cardButtonText}>Weather App</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 15</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('CoinFlipApp')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('CoinFlipApp')}>
           <Text style={styles.cardButtonText}>Coin Flip App</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('DiceRoller')}>
@@ -197,22 +189,18 @@ function HomeScreen({ route, navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('CounterApp')}>
           <Text style={styles.cardButtonText}>Counter App</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Week 16</Text>
-
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ToDoList')}>
+        <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('ToDoList')}>
           <Text style={styles.cardButtonText}>To-Do List</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('bmiCalculator')}>
           <Text style={styles.cardButtonText}>BMI Calculator</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
-
 
       {/* Logout button at the bottom */}
       <View style={styles.logoutContainer}>
@@ -223,7 +211,8 @@ function HomeScreen({ route, navigation }) {
     </ScrollView>
   );
 }
-
+// ---------------- ROOT APP COMPONENT ---------------- //
+// This component wraps the entire app with navigation container and defines all available screens
 export default function App() {
   return (
     <NavigationContainer>
@@ -233,84 +222,59 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
 
         {/* Week 12 - Day 1 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="FullNameWithPet" component={FullNameWithPet} />
+        <Stack.Screen name="FullNameWithPet" component={FullNameWithPet} />
         <Stack.Screen name="MyStudentProfile" component={MyStudentProfile} />
         <Stack.Screen name="PetInfo" component={PetInfo} />
-        <Stack.Screen name="TextInputExample" component={TextInputExample} /> */}
+        <Stack.Screen name="TextInputExample" component={TextInputExample} />
 
         {/* Week 12 - Day 2 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="ButtonAlerts" component={ButtonAlerts} />
+        <Stack.Screen name="ButtonAlerts" component={ButtonAlerts} />
         <Stack.Screen name="DogApp" component={DogApp} />
         <Stack.Screen name="MultiStudent" component={MultiStudent} />
-        <Stack.Screen name="MultiTVs" component={MultiTVs} /> */}
+        <Stack.Screen name="MultiTVs" component={MultiTVs} />
 
         {/* Week 13 - Day 1 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="CitiesSelectionList" component={CitiesSelectionList} />
+        <Stack.Screen name="CitiesSelectionList" component={CitiesSelectionList} />
         <Stack.Screen name="ClassComponentExample" component={ClassComponentExample} />
         <Stack.Screen name="ScrollViewExample" component={ScrollViewExample} />
         <Stack.Screen name="StatesFlatList" component={StatesFlatList} />
-        <Stack.Screen name="WordConvertor" component={WordConvertor} /> */}
+        <Stack.Screen name="WordConvertor" component={WordConvertor} />
 
         {/* Week 13 - Day 2 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="EqualFlexLayout" component={EqualFlexLayout} />
+        <Stack.Screen name="EqualFlexLayout" component={EqualFlexLayout} />
         <Stack.Screen name="FixedSizeLayout" component={FixedSizeLayout} />
         <Stack.Screen name="FlexLayout" component={FlexLayout} />
         <Stack.Screen name="FlippableMealCards" component={FlippableMealCards} />
         <Stack.Screen name="RowLayout" component={RowLayout} />
         <Stack.Screen name="SpaceEvenlyLayout" component={SpaceEvenlyLayout} />
-        <Stack.Screen name="StyledText" component={StyledText} /> */}
+        <Stack.Screen name="StyledText" component={StyledText} />
 
         {/* Week 14 - Day 1 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="ImagePickerAndShare" component={ImagePickerAndShare} /> */}
+        <Stack.Screen name="ImagePickerAndShare" component={ImagePickerAndShare} />
 
         {/* Week 14 - Day 2 */}
-
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="WeatherForecast" component={WeatherForecast} /> */}
+        <Stack.Screen name="WeatherForecast" component={WeatherForecast} />
 
         {/* Week 15 - Day 1 */}
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="CoinFlipApp" component={CoinFlipApp} />
-        <Stack.Screen name="DiceRoller" component={DiceRoller} /> */}
+        <Stack.Screen name="CoinFlipApp" component={CoinFlipApp} />
+        <Stack.Screen name="DiceRoller" component={DiceRoller} />
 
         {/* Week 15 - Day 2 */}
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="ThemeToggle" component={ThemeToggle} />
-        <Stack.Screen name="CounterApp" component={CounterApp} /> */}
+        <Stack.Screen name="ThemeToggle" component={ThemeToggle} />
+        <Stack.Screen name="CounterApp" component={CounterApp} />
 
         {/* Week 16 - Day 1 */}
-        {/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="ToDoList" component={ToDoList} /> */}
+        <Stack.Screen name="ToDoList" component={ToDoList} />
 
         {/* Week 16 - Day 2 */}
-{/* Uncomment the below once you have filled the code inside your project files */}
-
-        {/* <Stack.Screen name="bmiCalculator" component={bmiCalculator} /> */}
+        <Stack.Screen name="bmiCalculator" component={bmiCalculator} />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
 
+// ---------------- STYLESHEET SECTION ---------------- //
+// All visual styles for layout, colors, fonts, padding, etc.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

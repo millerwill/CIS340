@@ -1,0 +1,4 @@
+auth0 credentials:
+
+email: c340student@gmail.com
+password: csustudent  
