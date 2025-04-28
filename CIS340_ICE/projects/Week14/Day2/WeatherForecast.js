@@ -1,13 +1,74 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, TextInput, Image } from "react-native";
 
-// Keep imports for teaching/demo purposes
 import Forecast from "./Forecast";
 import OpenWeatherMap from "./open_weather_map";
 
 class WeatherForecast extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { zip: "", forecast: null };
+  }
+
+  _handleTextChange = (event) => {
+    let zip = event.nativeEvent.text;
+    OpenWeatherMap.fetchForecast(zip).then((forecast) => {
+      this.setState({ forecast: forecast });
+    });
+  };
+
   render() {
-    return <View style={styles.container} />;
+    let content = null;
+
+    if (this.state.forecast !== null) {
+      content = (
+        <Forecast
+          main={this.state.forecast.main}
+          description={this.state.forecast.description}
+          temp={this.state.forecast.temp}
+          feels_like={this.state.forecast.feels_like}
+          temp_min={this.state.forecast.temp_min}
+          temp_max={this.state.forecast.temp_max}
+          humidity={this.state.forecast.humidity}
+          wind_speed={this.state.forecast.wind_speed}
+          wind_deg={this.state.forecast.wind_deg}
+          pressure={this.state.forecast.pressure}
+          visibility={this.state.forecast.visibility}
+          sunrise={this.state.forecast.sunrise}
+          sunset={this.state.forecast.sunset}
+          city={this.state.forecast.city}
+          country={this.state.forecast.country}
+          icon={this.state.forecast.icon}
+        />
+      );
+    }
+
+    return (
+      <View style={styles.container}>
+        <Image
+          source={require("../../../assets/sky.jpg")}
+          resizeMode="cover"
+          style={styles.backdrop}
+        />
+
+        <View style={styles.overlay}>
+          <View style={styles.row}>
+            <Text style={styles.mainText}>Current Weather For:{"\n"}</Text>
+
+            <View style={styles.zipContainer}>
+              <TextInput
+                style={[styles.zipCode, styles.mainText]}
+                onSubmitEditing={this._handleTextChange}
+                underlineColorAndroid="transparent"
+                placeholder="Enter Zip"
+              />
+            </View>
+          </View>
+
+          {content}
+        </View>
+      </View>
+    );
   }
 }
 
