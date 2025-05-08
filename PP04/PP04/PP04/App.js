@@ -1,3 +1,8 @@
+//Will Miller, Parker Hamilon
+//Programming Project 04
+//May 8th, 2025
+//CIS 340 Spring 2025
+
 import React from 'react';
 import {
   View,
