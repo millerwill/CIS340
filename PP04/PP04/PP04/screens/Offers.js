@@ -32,7 +32,7 @@ const offers = [
 ];
 
 // Functional Component
-export default function BakeryOffer() {
+export default function Offers() {
   // TODO: Use useState, Math.random(), Image, Text, and Button 
   // to create an interactive offer screen
   const [currentOffer, setCurrentOffer] = useState(offers[0]);
